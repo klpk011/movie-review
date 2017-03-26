@@ -1,7 +1,9 @@
 <div class="col-md-12">
   <div class="group">
+    <% if current_user && current_user == @group.user %>
     <%= link_to("编辑", edit_group_path(@group), class: "btn btn-primary pull-right")%>
+    <% end %>
   </div>
-  <h2>🎬名称<%= @group.title %></h2>
-  <p>描述<%= @group.description %></p>
+  <h2>🎬名称:<%= @group.title %></h2>
+  <p>描述:<%= @group.description %></p>
 </div>
