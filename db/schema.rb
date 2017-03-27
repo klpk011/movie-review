@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170326144103) do
+ActiveRecord::Schema.define(version: 20170327152714) do
 
   create_table "groups", force: :cascade do |t|
     t.string   "title"
@@ -20,10 +20,9 @@ ActiveRecord::Schema.define(version: 20170326144103) do
     t.integer  "user_id"
   end
 
-  create_table "posts", force: :cascade do |t|
-    t.text     "content"
-    t.integer  "user_id"
+  create_table "movie_relationships", force: :cascade do |t|
     t.integer  "group_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
