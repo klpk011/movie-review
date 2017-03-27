@@ -7,4 +7,7 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :movie_relationships
   has_many :participated_movies, :through => :movie_relationships, :source => :group
+  def has_favorite?(group)
+    participated_movies.include?(group)
+  end
 end
