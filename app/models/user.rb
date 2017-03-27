@@ -10,4 +10,12 @@ class User < ApplicationRecord
   def has_favorite?(group)
     participated_movies.include?(group)
   end
+
+  def favorite!(group)
+    participated_movies << group
+  end
+
+  def unfavorite!(group)
+    participated_movies.delete(group)
+  end
 end
