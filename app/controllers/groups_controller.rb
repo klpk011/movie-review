@@ -41,6 +41,27 @@ class GroupsController < ApplicationController
     @group.destroy
     redirect_to groups_path, alert: "Move deleted"
   end
+
+  def favorite
+    @group = Group.find(params[:id])
+     if !current_user.has_favorite?(@group)
+       current_user.favorite!(@group)
+      flash[:notice] = "收藏本电影"
+    else
+      flash[:warning] = "已收藏本电影"
+    end
+    redirect_to group_path(@group)
+  end
+
+  def unfavorite
+    @group = Group.find(params[:id])
+     if current_user.has_favorite?(@group)
+       current_user.unfavorite!(@group)
+       flash[:alert] = "取消收藏本电影"
+     end
+     redirect_to group_path(@group)
+  end
+
 private
 def group_params
   params.require(:group).permit(:title,:description)

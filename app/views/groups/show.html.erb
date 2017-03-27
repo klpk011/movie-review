@@ -3,8 +3,12 @@
       <span class= "pull-right">
         <% if current_user && current_user.has_favorite?(@group)%>
           <label class="label label-success"> 已收藏</label>
+            <%= link_to("取消收藏", unfavorite_group_path(@group), method: :post, class: "btn btn-default") %>
+
         <% else %>
           <label class="label label-warning"> 未收藏</label>
+            <%= link_to("加入收藏", favorite_group_path(@group), method: :post, class: "btn btn-default") %>
+
         <% end %>
       </span>
         <%= link_to("新增影评", new_group_review_path(@group),class: "btn btn-default pull-right")%>
