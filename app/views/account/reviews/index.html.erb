@@ -4,6 +4,7 @@
   <table class="table">
     <thead>
       <tr>
+        <th> # </th>
         <th> Content </th>
         <th> Group Name </th>
         <th> Last Update </th>
@@ -14,7 +15,8 @@
     <tbody>
       <% @reviews.each do |review| %>
         <tr>
-          <td> <%= review.content %> </td>
+          <td> # </td>
+          <td> <%= simple_format(review.content) %> </td>
           <td> <%= review.group.title %> </td>
           <td> <%= review.updated_at %> </td>
           <td> <%= link_to('Edit', edit_group_review_path(review.group, review), class: "btn btn-default btn-xs") %></td>
