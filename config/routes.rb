@@ -13,5 +13,7 @@ Rails.application.routes.draw do
 
   namespace :account do
     resources :groups
+    resources :reviews
   end
+
 end
