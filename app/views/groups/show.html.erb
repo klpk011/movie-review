@@ -17,6 +17,11 @@
         <% end %>
     </div>
     <h2>🎬名称:<%= @group.title %></h2>
+   <% if @group.image.present? %>
+     <%= image_tag(@group.image.medium.url, class: "thumbnail") %>
+   <% else %>
+     <%= image_tag("http://placehold.it/300x419&text=No Pic", class: "thumbnail") %>
+   <% end %>
     <p>描述:<%= @group.description %></p>
     <table class="table">
         <thead>
